@@ -1,4 +1,4 @@
-Java Etherpad Lite Client
+Java Etherpad Lite Client (Pablo Rivas VVS mod)
 =========================
 
 A Java client for Etherpad Lite’s HTTP JSON API.
