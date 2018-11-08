@@ -1,6 +1,8 @@
 Java Etherpad Lite Client (Pablo Rivas VVS mod)
 =========================
 
+[![Build Status](https://travis-ci.com/pablorivascamino/java-etherpad-lite.svg?branch=master)](https://travis-ci.com/pablorivascamino/java-etherpad-lite)
+
 A Java client for Etherpad Lite’s HTTP JSON API.
 Etherpad Lite is a collaborative editor provided by the Etherpad Foundation.
 
