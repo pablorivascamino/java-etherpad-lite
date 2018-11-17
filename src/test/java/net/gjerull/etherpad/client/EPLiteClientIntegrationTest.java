@@ -12,6 +12,7 @@ import org.mockserver.model.HttpRequest;
 import org.mockserver.model.HttpResponse;
 import org.mockserver.model.Parameter;
 import org.mockserver.model.Parameters;
+import org.mockserver.model.StringBody;
 
 import static org.mockserver.model.Header.header;
 import static org.mockserver.model.ParameterBody.params;
@@ -129,7 +130,8 @@ public class EPLiteClientIntegrationTest {
                HttpRequest.request()
                .withMethod("POST")
                .withPath("/api/1.2.13/createGroup")
-               .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58")
+               .withBody(StringBody.exact
+               		("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58"))
                .withHeaders(
 	                 header("Content-type", "application/x-www-form-urlencoded"),
 	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
@@ -149,8 +151,9 @@ public class EPLiteClientIntegrationTest {
     		.when(
     			HttpRequest.request()
                 .withMethod("POST")
-                .withPath("/api/1.2.13/deleteGroup")
-                .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3")
+                .withPath("/api/1.2.13/deleteGroup")  
+                .withBody(StringBody.exact
+                		("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3"))
                 .withHeaders(
    	                 header("Content-type", "application/x-www-form-urlencoded"),
    	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
@@ -188,7 +191,7 @@ public class EPLiteClientIntegrationTest {
               HttpRequest.request()
               .withMethod("POST")
               .withPath("/api/1.2.13/createGroupIfNotExistsFor")
-              .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupMapper=groupname")
+              .withBody(StringBody.exact("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupMapper=groupname"))
               .withHeaders(
 	                 header("Content-type", "application/x-www-form-urlencoded"),
 	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
@@ -232,7 +235,7 @@ public class EPLiteClientIntegrationTest {
               HttpRequest.request()
               .withMethod("POST")
               .withPath("/api/1.2.13/deleteGroup")
-              .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3")
+              .withBody(StringBody.exact("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3"))
               .withHeaders(
 	                 header("Content-type", "application/x-www-form-urlencoded"),
 	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
