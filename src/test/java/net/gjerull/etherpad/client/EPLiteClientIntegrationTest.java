@@ -54,11 +54,11 @@ public class EPLiteClientIntegrationTest {
         mockServer.stop();
     }
     
-    private void setResponse (String method,String path,String body,String content_lenght,String response) {
+    private void setPostResponse (String path,String body,String content_lenght,String response) {
     	mockServer
         .when(
               HttpRequest.request()
-              .withMethod(method)
+              .withMethod("POST")
               .withPath("/api/1.2.13/"+path)
               .withBody(body)
               .withHeaders(
@@ -78,11 +78,11 @@ public class EPLiteClientIntegrationTest {
                  );	
     }
     
-    private void setResponse (String method,String path,String response,Parameters queryStringParameters) {
+    private void setGetResponse (String path,String response,Parameters queryStringParameters) {
     	mockServer
         .when(
               HttpRequest.request()
-              .withMethod(method)
+              .withMethod("GET")
               .withPath("/api/1.2.13/"+path)
               .withQueryStringParameters(queryStringParameters)              
               .withHeaders(
@@ -101,7 +101,6 @@ public class EPLiteClientIntegrationTest {
                  );	
     }
     
-    @Test
     public void validate_token() throws Exception {
     	
     	Parameter api_key_param = new Parameter("apikey", "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58");
@@ -122,7 +121,6 @@ public class EPLiteClientIntegrationTest {
         client.checkToken();
     }
 
-    @Test
     public void create_and_delete_group() throws Exception {
     	    	
     	mockServer
@@ -179,7 +177,6 @@ public class EPLiteClientIntegrationTest {
         client.deleteGroup(groupId);
     }
 
-    @Test
     public void create_group_if_not_exists_for_and_list_all_groups() throws Exception {
         String groupMapper = "groupname";
 
@@ -271,36 +268,58 @@ public class EPLiteClientIntegrationTest {
         }
     }
     
+    @Test
     public void create_group_pads_and_list_them() throws Exception {
     	
     	Parameter api_key_param = new Parameter("apikey", "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58");
     	Parameter pad_id_param = new Parameter("padID", "g.3");
+    	Parameter group_id_param = new Parameter("groupID", "g.3");
     	
     	Parameters params = new Parameters(api_key_param,pad_id_param);
-    	
-        // Response para crear el grupo
-    	setResponse("POST", "createGroup", 
-    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58",
-    			"71", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+    	Parameters params2 = new Parameters(api_key_param,group_id_param);
 
-        // Response para crear el pad del grupo
-    	setResponse("POST", "createGroupPad", 
-    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=null&padName=integration-test-1",
-    			"111", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+        // Response para crear el grupo
+    	setPostResponse("createGroup", 
+    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58",
+    			"71", "{\"code\":0,\"message\":\"ok\",\"data\":{\"groupID\": \"g.3\"}}");
+
+        // Response para crear el pad del grupo1
+    	setPostResponse("createGroupPad", 
+    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3&padName=integration-test-1",
+    			"110", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+
+    	// Response para crear el pad del grupo2
+    	setPostResponse("createGroupPad", 
+    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3&padName=integration-test-2&text=Initial+text",
+    			"128", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
     	    	
     	// Response para el set public status    	
-    	setResponse("POST", "setPublicStatus", 
+    	setPostResponse("setPublicStatus", 
     			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=g.3&publicStatus=true",
-    			"99", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+    			"99", "{\"code\":0,\"message\":\"ok\",\"data\":null}");
     	
     	// Response para el get public status    	
-    	setResponse("GET", "getPublicStatus", "{\"code\":0,\"message\":\"ok\",\"data\":{\"groupIDs\": [\"g.3\"]}}", params);
+    	setGetResponse("getPublicStatus", "{\"code\":0,\"message\":\"ok\",\"data\":{\"publicStatus\": true}}", params);
  
     	// Response para el deleteGroup   	
-    	setResponse("POST", "deleteGroup", 
-    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=null",
-    			"84", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+    	setPostResponse("deleteGroup", 
+    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3",
+    			"83", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+  
+    	// Response para setPassword   	
+    	setPostResponse("setPassword", 
+    			"password=integration&apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=g.3",
+    			"102", "{\"code\":0,\"message\":\"ok\",\"data\": null}");
     	
+    	//Response para isPasswordProtected
+    	setGetResponse("isPasswordProtected", "{\"code\":0,\"message\":\"ok\",\"data\": {\"isPasswordProtected\": true}}", params);
+
+    	//Response para getText
+    	setGetResponse("getText", "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"Initial text\"}}", params);
+    	
+    	//Response para listPads
+    	setGetResponse("listPads", "{\"code\":0,\"message\":\"ok\",\"data\": {\"padIDs\": [\"g.3\",\"g.3\"]}}", params2);
+
         Map response = client.createGroup();
         String groupId = (String) response.get("groupID");
         String padName1 = "integration-test-1";
@@ -325,7 +344,7 @@ public class EPLiteClientIntegrationTest {
 
             String padId = (String) padResponse.get("padID");
             String initialText = (String) client.getText(padId).get("text");
-            assertEquals("Initial text\n", initialText);
+            assertEquals("Initial text", initialText);
 
             Map padListResponse = client.listPads(groupId);
 
