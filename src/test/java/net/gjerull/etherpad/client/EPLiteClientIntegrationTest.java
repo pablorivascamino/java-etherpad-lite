@@ -415,6 +415,7 @@ public class EPLiteClientIntegrationTest {
 
         String secondAuthorName = client.getAuthorName(secondAuthorId);
 
+        //FIXME: imposible que la llamada devuelva algo diferente
         //assertNotEquals(firstAuthorName, secondAuthorName);
 
         authorResponse = client.createAuthorIfNotExistsFor(authorMapper);
@@ -631,6 +632,7 @@ public class EPLiteClientIntegrationTest {
         assertEquals(keep, copyPadText);
         assertEquals(keep, movePadText);
 
+        //FIXME:  imposible hacer que la llamada devuelva otra cosa
         //assertEquals(change, copyPadTextForce);
         //assertEquals(change, movePadTextForce);
     }
@@ -678,6 +680,28 @@ public class EPLiteClientIntegrationTest {
         String padID = "integration-test-pad-1";
         String user1 = "user1";
         String user2 = "user2";
+        
+                setPostResponse("createAuthorIfNotExistsFor", 
+        		"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&name=integration-author-1&authorMapper=user1",
+        		"116", "{\"code\":0,\"message\":\"ok\",\"data\": {\"authorID\": \"a.user\"}}");
+        
+        setPostResponse("createAuthorIfNotExistsFor", 
+        		"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&name=integration-author-2&authorMapper=user2",
+        		"116", "{\"code\":0,\"message\":\"ok\",\"data\": {\"authorID\": \"a.user2\"}}");  	
+        setPostResponse("createPad", 
+        		"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad-1",
+        		"100", "{\"code\":0,\"message\":\"ok\",\"data\": null}");  
+        setPostResponse("deletePad", 
+        		"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad-1",
+        		"100", "{\"code\":0,\"message\":\"ok\",\"data\": null}");  
+        
+        setPostResponse("appendChatMessage", 
+        		"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad-1&text=hi+from+user1&authorID=a.user",
+        		"135", "{\"code\":0,\"message\":\"ok\",\"data\": null}");  
+        setPostResponse("appendChatMessage", 
+        		"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad-1&text=hi+from+user2&time=1542495550&authorID=a.user2",
+        		"152", "{\"code\":0,\"message\":\"ok\",\"data\": null}"); 
+        
         Map response = client.createAuthorIfNotExistsFor(user1, "integration-author-1");
         String author1Id = (String) response.get("authorID");
         response = client.createAuthorIfNotExistsFor(user2, "integration-author-2");
