@@ -7,9 +7,16 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockserver.integration.ClientAndServer;
-import org.mockserver.junit.MockServerRule;
+
 import org.mockserver.model.HttpRequest;
 import org.mockserver.model.HttpResponse;
+import org.mockserver.model.Parameter;
+
+import static org.mockserver.model.Header.header;
+import static org.mockserver.model.ParameterBody.params;
+import static org.mockserver.model.StringBody.subString;
+import static org.mockserver.model.Parameter.param;
+
 
 import static org.mockserver.integration.ClientAndServer.startClientAndServer;
 
@@ -25,9 +32,6 @@ public class EPLiteClientIntegrationTest {
 
     private ClientAndServer mockServer;
     
-    @Rule
-    public MockServerRule mockServerRule = new MockServerRule(this);
-    
     /**
      * Useless testing as it depends on a specific API key
      *
@@ -39,44 +43,92 @@ public class EPLiteClientIntegrationTest {
                 "http://localhost:9001",
                 "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58"
         );
-        
         mockServer = startClientAndServer(9001);
-    } 
-
+        
+    }
+    
     @After
-    public void stopServer() {
-    	mockServer.stop();
+    public void tearDown() {
+        mockServer.stop();
     }
     
     @Test
     public void validate_token() throws Exception {
-    	mockServer
-        .when(
-              HttpRequest.request()
-              .withMethod("GET")
-              .withPath("/api/1.2.13/checkToken")
-              .withBody("{\"apikey\":\"a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58\"}")
-              )
-        .respond(
-                 HttpResponse.response()
-                 .withStatusCode(200)
-                 .withBody("{\"code\":0,\"message\":\"ok\",\"data\":null}")
-                 );
     	
+    	Parameter api_key_param = new Parameter("apikey", "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58");
+    	
+        mockServer
+            .when(
+                  HttpRequest.request()
+                  .withMethod("GET")
+                  .withPath("/api/1.2.13/checkToken")
+                  .withQueryStringParameters(api_key_param)
+                  )
+            .respond(
+                     HttpResponse.response()
+                     .withStatusCode(200)
+                     .withBody("{\"code\":0,\"message\":\"ok\",\"data\":null}")
+                     );
+
         client.checkToken();
     }
-/*
+
     @Test
     public void create_and_delete_group() throws Exception {
-        Map response = client.createGroup();
-
+    	    	
+    	mockServer
+         .when(
+               HttpRequest.request()
+               .withMethod("POST")
+               .withPath("/api/1.2.13/createGroup")
+               .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58")
+               .withHeaders(
+	                 header("Content-type", "application/x-www-form-urlencoded"),
+	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
+	                 header("User-Agent", "Java/1.8.0_92"),
+	                 header("Connection", "keep-alive"),
+	                 header("Host", "localhost:9001"),
+	                 header("Content-Length", "71")
+	             )
+               .withKeepAlive(true)
+               .withSecure(false)
+         ).respond(
+                  HttpResponse.response()
+                  .withStatusCode(200) 
+                  .withBody("{\"code\":0,\"message\":\"ok\",\"data\":{\"groupID\": \"g.3\"}}")
+                  );
+    	
+    	mockServer
+    		.when(
+    			HttpRequest.request()
+                .withMethod("POST")
+                .withPath("/api/1.2.13/deleteGroup")
+                .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3")
+                .withHeaders(
+   	                 header("Content-type", "application/x-www-form-urlencoded"),
+   	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
+   	                 header("User-Agent", "Java/1.8.0_92"),
+   	                 header("Connection", "keep-alive"),
+   	                 header("Host", "localhost:9001"),
+   	                 header("Content-Length", "83")
+   	             )	
+                .withKeepAlive(true)
+                .withSecure(false)
+    	).respond(
+    				HttpResponse.response()
+                    .withStatusCode(200) 
+                    .withBody("{\"code\":0,\"message\":\"ok\",\"data\":null}")
+    				);
+    	
+    	Map response = client.createGroup();
+    	
         assertTrue(response.containsKey("groupID"));
         String groupId = (String) response.get("groupID");
         assertTrue("Unexpected groupID " + groupId, groupId != null && groupId.startsWith("g."));
 
         client.deleteGroup(groupId);
     }
-
+/*
     @Test
     public void create_group_if_not_exists_for_and_list_all_groups() throws Exception {
         String groupMapper = "groupname";
