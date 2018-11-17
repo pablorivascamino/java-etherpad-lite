@@ -60,7 +60,7 @@ public class EPLiteClientIntegrationTest {
               HttpRequest.request()
               .withMethod("POST")
               .withPath("/api/1.2.13/"+path)
-              .withBody(body)
+              .withBody(new StringBody(body))
               .withHeaders(
 	                 header("Content-type", "application/x-www-form-urlencoded"),
 	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
@@ -101,6 +101,7 @@ public class EPLiteClientIntegrationTest {
                  );	
     }
     
+    @Test
     public void validate_token() throws Exception {
     	
     	Parameter api_key_param = new Parameter("apikey", "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58");
@@ -121,6 +122,7 @@ public class EPLiteClientIntegrationTest {
         client.checkToken();
     }
 
+    @Test
     public void create_and_delete_group() throws Exception {
     	    	
     	mockServer
@@ -128,7 +130,7 @@ public class EPLiteClientIntegrationTest {
                HttpRequest.request()
                .withMethod("POST")
                .withPath("/api/1.2.13/createGroup")
-               .withBody(StringBody.exact
+               .withBody(new StringBody
                		("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58"))
                .withHeaders(
 	                 header("Content-type", "application/x-www-form-urlencoded"),
@@ -150,7 +152,7 @@ public class EPLiteClientIntegrationTest {
     			HttpRequest.request()
                 .withMethod("POST")
                 .withPath("/api/1.2.13/deleteGroup")  
-                .withBody(StringBody.exact
+                .withBody(new StringBody
                 		("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3"))
                 .withHeaders(
    	                 header("Content-type", "application/x-www-form-urlencoded"),
@@ -177,6 +179,7 @@ public class EPLiteClientIntegrationTest {
         client.deleteGroup(groupId);
     }
 
+    @Test
     public void create_group_if_not_exists_for_and_list_all_groups() throws Exception {
         String groupMapper = "groupname";
 
@@ -188,7 +191,7 @@ public class EPLiteClientIntegrationTest {
               HttpRequest.request()
               .withMethod("POST")
               .withPath("/api/1.2.13/createGroupIfNotExistsFor")
-              .withBody(StringBody.exact("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupMapper=groupname"))
+              .withBody(new StringBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupMapper=groupname"))
               .withHeaders(
 	                 header("Content-type", "application/x-www-form-urlencoded"),
 	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
@@ -232,7 +235,7 @@ public class EPLiteClientIntegrationTest {
               HttpRequest.request()
               .withMethod("POST")
               .withPath("/api/1.2.13/deleteGroup")
-              .withBody(StringBody.exact("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3"))
+              .withBody(new StringBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3"))
               .withHeaders(
 	                 header("Content-type", "application/x-www-form-urlencoded"),
 	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
@@ -268,6 +271,7 @@ public class EPLiteClientIntegrationTest {
         }
     }
     
+    @Test
     public void create_group_pads_and_list_them() throws Exception {
     	
     	Parameter api_key_param = new Parameter("apikey", "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58");
