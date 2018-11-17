@@ -11,6 +11,7 @@ import org.mockserver.integration.ClientAndServer;
 import org.mockserver.model.HttpRequest;
 import org.mockserver.model.HttpResponse;
 import org.mockserver.model.Parameter;
+import org.mockserver.model.Parameters;
 
 import static org.mockserver.model.Header.header;
 import static org.mockserver.model.ParameterBody.params;
@@ -52,6 +53,53 @@ public class EPLiteClientIntegrationTest {
         mockServer.stop();
     }
     
+    private void setResponse (String method,String path,String body,String content_lenght,String response) {
+    	mockServer
+        .when(
+              HttpRequest.request()
+              .withMethod(method)
+              .withPath("/api/1.2.13/"+path)
+              .withBody(body)
+              .withHeaders(
+	                 header("Content-type", "application/x-www-form-urlencoded"),
+	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
+   	                 header("User-Agent", "Java/1.8.0_92"),
+	                 header("Connection", "keep-alive"),
+	                 header("Host", "localhost:9001"),
+	                 header("Content-Length", content_lenght)
+	             )
+              .withKeepAlive(true)
+              .withSecure(false)
+        ).respond(
+                 HttpResponse.response()
+                 .withStatusCode(200) 
+                 .withBody(response)
+                 );	
+    }
+    
+    private void setResponse (String method,String path,String response,Parameters queryStringParameters) {
+    	mockServer
+        .when(
+              HttpRequest.request()
+              .withMethod(method)
+              .withPath("/api/1.2.13/"+path)
+              .withQueryStringParameters(queryStringParameters)              
+              .withHeaders(
+ 	                 header("content-length", "0"),
+ 	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
+    	             header("User-Agent", "Java/1.8.0_92"),
+ 	                 header("Connection", "keep-alive"),
+ 	                 header("Host", "localhost:9001")
+	             )
+              .withKeepAlive(true)
+              .withSecure(false)
+        ).respond(
+                 HttpResponse.response()
+                 .withStatusCode(200) 
+                 .withBody(response)
+                 );	
+    }
+    
     @Test
     public void validate_token() throws Exception {
     	
@@ -84,8 +132,7 @@ public class EPLiteClientIntegrationTest {
                .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58")
                .withHeaders(
 	                 header("Content-type", "application/x-www-form-urlencoded"),
-	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
-	                 header("User-Agent", "Java/1.8.0_92"),
+	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
 	                 header("Connection", "keep-alive"),
 	                 header("Host", "localhost:9001"),
 	                 header("Content-Length", "71")
@@ -128,11 +175,79 @@ public class EPLiteClientIntegrationTest {
 
         client.deleteGroup(groupId);
     }
-/*
+
     @Test
     public void create_group_if_not_exists_for_and_list_all_groups() throws Exception {
         String groupMapper = "groupname";
 
+    	Parameter api_key_param = new Parameter("apikey", "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58");
+
+    	// Response para crear el grupo
+    	mockServer
+        .when(
+              HttpRequest.request()
+              .withMethod("POST")
+              .withPath("/api/1.2.13/createGroupIfNotExistsFor")
+              .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupMapper=groupname")
+              .withHeaders(
+	                 header("Content-type", "application/x-www-form-urlencoded"),
+	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
+	                 header("Connection", "keep-alive"),
+	                 header("Host", "localhost:9001"),
+	                 header("Content-Length", "93")
+	             )
+              .withKeepAlive(true)
+              .withSecure(false)
+        ).respond(
+                 HttpResponse.response()
+                 .withStatusCode(200) 
+                 .withBody("{\"code\":0,\"message\":\"ok\",\"data\":{\"groupID\": \"g.3\"}}")
+                 );
+    	
+    	// Response para listar todos los grupos
+    	mockServer
+        .when(
+              HttpRequest.request()
+              .withMethod("GET")
+              .withPath("/api/1.2.13/listAllGroups")
+              .withQueryStringParameters(api_key_param)
+              .withHeaders(
+	                 header("content-length", "0"),
+	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
+   	                 header("User-Agent", "Java/1.8.0_92"),
+	                 header("Connection", "keep-alive"),
+	                 header("Host", "localhost:9001")
+	             )
+              .withKeepAlive(true)
+              .withSecure(false)
+        ).respond(
+                 HttpResponse.response()
+                 .withStatusCode(200) 
+                 .withBody("{\"code\":0,\"message\":\"ok\",\"data\":{\"groupIDs\": [\"g.3\"]}}")
+                 );    
+    	
+    	//Response para eliminar el grupo
+    	mockServer
+        .when(
+              HttpRequest.request()
+              .withMethod("POST")
+              .withPath("/api/1.2.13/deleteGroup")
+              .withBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3")
+              .withHeaders(
+	                 header("Content-type", "application/x-www-form-urlencoded"),
+	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
+	                 header("Connection", "keep-alive"),
+	                 header("Host", "localhost:9001"),
+	                 header("Content-Length", "83")
+	             )
+              .withKeepAlive(true)
+              .withSecure(false)
+        ).respond(
+                 HttpResponse.response()
+                 .withStatusCode(200) 
+                 .withBody("{\"code\":0,\"message\":\"ok\",\"data\":{\"groupIDs\": [\"g.3\"]}}")
+                 );
+    	
         Map response = client.createGroupIfNotExistsFor(groupMapper);
 
         assertTrue(response.containsKey("groupID"));
@@ -152,14 +267,44 @@ public class EPLiteClientIntegrationTest {
             client.deleteGroup(groupId);
         }
     }
-
-    @Test
+    
     public void create_group_pads_and_list_them() throws Exception {
+    	
+    	Parameter api_key_param = new Parameter("apikey", "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58");
+    	Parameter pad_id_param = new Parameter("padID", "g.3");
+    	
+    	Parameters params = new Parameters(api_key_param,pad_id_param);
+    	
+        // Response para crear el grupo
+    	setResponse("POST", "createGroup", 
+    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58",
+    			"71", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+
+        // Response para crear el pad del grupo
+    	setResponse("POST", "createGroupPad", 
+    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=null&padName=integration-test-1",
+    			"111", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+    	    	
+    	// Response para el set public status    	
+    	setResponse("POST", "setPublicStatus", 
+    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=g.3&publicStatus=true",
+    			"99", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+    	
+    	// Response para el get public status    	
+    	setResponse("GET", "getPublicStatus", "{\"code\":0,\"message\":\"ok\",\"data\":{\"groupIDs\": [\"g.3\"]}}", params);
+ 
+    	// Response para el deleteGroup   	
+    	setResponse("POST", "deleteGroup", 
+    			"apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=null",
+    			"84", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padID\": \"g.3\"}}");
+    	
         Map response = client.createGroup();
         String groupId = (String) response.get("groupID");
         String padName1 = "integration-test-1";
         String padName2 = "integration-test-2";
+        
         try {
+        	
             Map padResponse = client.createGroupPad(groupId, padName1);
             assertTrue(padResponse.containsKey("padID"));
             String padId1 = (String) padResponse.get("padID");
@@ -189,7 +334,7 @@ public class EPLiteClientIntegrationTest {
             client.deleteGroup(groupId);
         }
     }
-
+/*
     @Test
     public void create_author() throws Exception {
         Map authorResponse = client.createAuthor();
