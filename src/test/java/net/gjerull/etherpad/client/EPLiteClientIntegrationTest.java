@@ -268,7 +268,6 @@ public class EPLiteClientIntegrationTest {
         }
     }
     
-    @Test
     public void create_group_pads_and_list_them() throws Exception {
     	
     	Parameter api_key_param = new Parameter("apikey", "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58");
