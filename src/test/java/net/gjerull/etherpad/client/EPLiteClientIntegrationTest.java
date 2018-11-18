@@ -52,21 +52,24 @@ public class EPLiteClientIntegrationTest {
     
     private void setPostResponse (String path,String body,String content_lenght,String response) {
         //.withBody(new StringBody(body))
+    	
+        //.withHeaders(
+        //        header("Content-type", "application/x-www-form-urlencoded"),
+        //        header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
+	    //             header("User-Agent", "Java/1.8.0_92"),
+        //        header("Connection", "keep-alive"),
+        //        header("Host", "localhost:9001"),
+        //        header("Content-Length", content_lenght)
+        //    )    	
+    	
+        //.withKeepAlive(true)
+        //.withSecure(false)
+    	
     	mockServer
-        .when(
+    	.when(
               HttpRequest.request()
               .withMethod("POST")
               .withPath("/api/1.2.13/"+path)
-              .withHeaders(
-	                 header("Content-type", "application/x-www-form-urlencoded"),
-	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
-   	                 header("User-Agent", "Java/1.8.0_92"),
-	                 header("Connection", "keep-alive"),
-	                 header("Host", "localhost:9001"),
-	                 header("Content-Length", content_lenght)
-	             )
-              .withKeepAlive(true)
-              .withSecure(false)
         ).respond(
                  HttpResponse.response()
                  .withStatusCode(200) 
@@ -75,21 +78,21 @@ public class EPLiteClientIntegrationTest {
     }
     
     private void setGetResponse (String path,String response,Parameters queryStringParameters) {
+
+        //.withHeaders(
+        //         header("content-length", "0"),
+        //         header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
+	    //         header("User-Agent", "Java/1.8.0_92"),
+        //         header("Connection", "keep-alive"),
+        //         header("Host", "localhost:9001")
+        //    )
+    	
     	mockServer
         .when(
               HttpRequest.request()
               .withMethod("GET")
               .withPath("/api/1.2.13/"+path)
               .withQueryStringParameters(queryStringParameters)              
-              .withHeaders(
- 	                 header("content-length", "0"),
- 	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
-    	             header("User-Agent", "Java/1.8.0_92"),
- 	                 header("Connection", "keep-alive"),
- 	                 header("Host", "localhost:9001")
-	             )
-              .withKeepAlive(true)
-              .withSecure(false)
         ).respond(
                  HttpResponse.response()
                  .withStatusCode(200) 
@@ -130,15 +133,6 @@ public class EPLiteClientIntegrationTest {
                HttpRequest.request()
                .withMethod("POST")
                .withPath("/api/1.2.13/createGroup")
-               .withHeaders(
-	                 header("Content-type", "application/x-www-form-urlencoded"),
-	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
-	                 header("Connection", "keep-alive"),
-	                 header("Host", "localhost:9001"),
-	                 header("Content-Length", "71")
-	             )
-               .withKeepAlive(true)
-               .withSecure(false)
          ).respond(
                   HttpResponse.response()
                   .withStatusCode(200) 
@@ -154,16 +148,6 @@ public class EPLiteClientIntegrationTest {
     			HttpRequest.request()
                 .withMethod("POST")
                 .withPath("/api/1.2.13/deleteGroup")  
-                .withHeaders(
-   	                 header("Content-type", "application/x-www-form-urlencoded"),
-   	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),
-   	                 header("User-Agent", "Java/1.8.0_92"),
-   	                 header("Connection", "keep-alive"),
-   	                 header("Host", "localhost:9001"),
-   	                 header("Content-Length", "83")
-   	             )	
-                .withKeepAlive(true)
-                .withSecure(false)
     	).respond(
     				HttpResponse.response()
                     .withStatusCode(200) 
@@ -192,15 +176,7 @@ public class EPLiteClientIntegrationTest {
               .withMethod("POST")
               .withPath("/api/1.2.13/createGroupIfNotExistsFor")
               .withBody(new StringBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupMapper=groupname"))
-              .withHeaders(
-	                 header("Content-type", "application/x-www-form-urlencoded"),
-	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
-	                 header("Connection", "keep-alive"),
-	                 header("Host", "localhost:9001"),
-	                 header("Content-Length", "93")
-	             )
-              .withKeepAlive(true)
-              .withSecure(false)
+
         ).respond(
                  HttpResponse.response()
                  .withStatusCode(200) 
@@ -214,15 +190,7 @@ public class EPLiteClientIntegrationTest {
               .withMethod("GET")
               .withPath("/api/1.2.13/listAllGroups")
               .withQueryStringParameters(api_key_param)
-              .withHeaders(
-	                 header("content-length", "0"),
-	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
-   	                 header("User-Agent", "Java/1.8.0_92"),
-	                 header("Connection", "keep-alive"),
-	                 header("Host", "localhost:9001")
-	             )
-              .withKeepAlive(true)
-              .withSecure(false)
+
         ).respond(
                  HttpResponse.response()
                  .withStatusCode(200) 
@@ -236,15 +204,6 @@ public class EPLiteClientIntegrationTest {
               .withMethod("POST")
               .withPath("/api/1.2.13/deleteGroup")
               .withBody(new StringBody("apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&groupID=g.3"))
-              .withHeaders(
-	                 header("Content-type", "application/x-www-form-urlencoded"),
-	                 header("Accept", "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"),	                		 header("User-Agent", "Java/1.8.0_92"),
-	                 header("Connection", "keep-alive"),
-	                 header("Host", "localhost:9001"),
-	                 header("Content-Length", "83")
-	             )
-              .withKeepAlive(true)
-              .withSecure(false)
         ).respond(
                  HttpResponse.response()
                  .withStatusCode(200) 
