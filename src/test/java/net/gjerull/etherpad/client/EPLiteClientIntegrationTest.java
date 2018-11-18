@@ -459,8 +459,12 @@ public class EPLiteClientIntegrationTest {
     	Parameter rev_param = new Parameter("rev", "2");
     	Parameter authorID_param = new Parameter("authorID", "a.2");
     	
+    	Parameter startRev = new Parameter("startRev", "1");
+    	Parameter endRev = new Parameter("endRev", "2");
+
     	Parameters params = new Parameters(api_key_param,padID_param);
     	Parameters params2 = new Parameters(api_key_param,padID_param,rev_param);
+    	Parameters params3 = new Parameters(api_key_param,padID_param,startRev,endRev);
     	
     	String padID = "integration-test-pad";
         setPostResponse("createPad", "{\"code\":0,\"message\":\"ok\",\"data\": null}");
@@ -505,16 +509,20 @@ public class EPLiteClientIntegrationTest {
         	setGetResponse("getRevisionChangeset", "{\"code\":0,\"message\":\"ok\",\"data\": \"Este texto es maravilloso\"}", params);            
             String revisionChangeset = client.getRevisionChangeset(padID);
             assertTrue(revisionChangeset, revisionChangeset.contains("Este texto es maravilloso"));
-/*
-            revisionChangeset = client.getRevisionChangeset(padID, 2);
-            assertTrue(revisionChangeset, revisionChangeset.contains("|1-j|1+1$\n"));
-	
-            String diffHTML = (String) client.createDiffHTML(padID, 1, 2).get("html");
-            assertTrue(diffHTML, diffHTML.contains(
-                    "<span class=\"removed\">g&#229; &#229; gj&#248;r et &#230;rend</span>"
-            ));
 
+        	setGetResponse("getRevisionChangeset", "{\"code\":0,\"message\":\"ok\",\"data\": \"Este texto es maravilloso\"}", params2);                
+            
+            revisionChangeset = client.getRevisionChangeset(padID, 2);
+            //assertTrue(revisionChangeset, revisionChangeset.contains("|1-j|1+1$\n"));
+        	setGetResponse("createDiffHTML", "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"Este texto es maravilloso\"}}", params3);            
+	            String diffHTML = (String) client.createDiffHTML(padID, 1, 2).get("html");
+            //assertTrue(diffHTML, diffHTML.contains(		
+            //        "<span class=\"removed\">g&#229; &#229; gj&#248;r et &#230;rend</span>"
+            //));
+
+            setPostResponse("appendText", "{\"code\":0,\"message\":\"ok\",\"data\": null}");
             client.appendText(padID, "lagt til nå");
+            /*
             text = (String) client.getText(padID).get("text");
             assertEquals("gå og gjøre et ærend igjen\nlagt til nå\n", text);
 
