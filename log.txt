@@ -1,0 +1,2440 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Etherpad Lite Client 1.2.14-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ etherpad_lite_client ---
+[INFO] Deleting /home/pablo/Documentos/Coruña4/VVS/P3/workspace/etherpad_lite_client/target
+[INFO] 
+[INFO] >>> cobertura-maven-plugin:2.7:cobertura (default-cli) > [cobertura]test @ etherpad_lite_client >>>
+[WARNING] The POM for org.apache.commons:commons-lang3:jar:3.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ etherpad_lite_client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/pablo/Documentos/Coruña4/VVS/P3/workspace/etherpad_lite_client/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ etherpad_lite_client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /home/pablo/Documentos/Coruña4/VVS/P3/workspace/etherpad_lite_client/target/classes
+[INFO] 
+[INFO] --- cobertura-maven-plugin:2.7:instrument (default-cli) @ etherpad_lite_client ---
+[INFO] Cobertura 2.1.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[INFO] Cobertura: Saved information on 8 classes.
+[INFO] Cobertura: Saved information on 8 classes.
+
+[INFO] Instrumentation was successful.
+[INFO] NOT adding cobertura ser file to attached artifacts list.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ etherpad_lite_client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/pablo/Documentos/Coruña4/VVS/P3/workspace/etherpad_lite_client/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ etherpad_lite_client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/pablo/Documentos/Coruña4/VVS/P3/workspace/etherpad_lite_client/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ etherpad_lite_client ---
+[INFO] Surefire report directory: /home/pablo/Documentos/Coruña4/VVS/P3/workspace/etherpad_lite_client/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running net.gjerull.etherpad.client.EPLiteClientIntegrationTest
+[DEBUG] Using SLF4J as the default logging framework
+[INFO] started on port: 9001
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/createPad"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/createPad",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "98" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/createPad"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/createPad",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "98" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	}
+
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/setText"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/setText",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "142" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad&text=g%C3%A5+%C3%A5+gj%C3%B8r+et+%C3%A6rend",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/createPad"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/setText",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "142" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad&text=g%C3%A5+%C3%A5+gj%C3%B8r+et+%C3%A6rend",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/setText"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/setText",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "142" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad&text=g%C3%A5+%C3%A5+gj%C3%B8r+et+%C3%A6rend",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	}
+
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"Initial text\"}}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getText",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/createPad"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getText",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/setText"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getText",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"Initial text\"}}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"Initial text\"}}"
+	}
+
+ for request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getText",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"Initial text\"}}"
+	}
+
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/setHTML"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/setHTML",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "229" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad&html=%3C%21DOCTYPE+HTML%3E%3Chtml%3E%3Cbody%3E%3Cp%3Eg%C3%A5+og+gj%C3%B8re+et+%C3%A6rend+igjen%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/createPad"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/setHTML",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "229" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad&html=%3C%21DOCTYPE+HTML%3E%3Chtml%3E%3Cbody%3E%3Cp%3Eg%C3%A5+og+gj%C3%B8re+et+%C3%A6rend+igjen%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/setText"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/setHTML",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "229" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad&html=%3C%21DOCTYPE+HTML%3E%3Chtml%3E%3Cbody%3E%3Cp%3Eg%C3%A5+og+gj%C3%B8re+et+%C3%A6rend+igjen%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"Initial text\"}}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/setHTML",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "229" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad&html=%3C%21DOCTYPE+HTML%3E%3Chtml%3E%3Cbody%3E%3Cp%3Eg%C3%A5+og+gj%C3%B8re+et+%C3%A6rend+igjen%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/setHTML"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/setHTML",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "229" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad&html=%3C%21DOCTYPE+HTML%3E%3Chtml%3E%3Cbody%3E%3Cp%3Eg%C3%A5+og+gj%C3%B8re+et+%C3%A6rend+igjen%3C%2Fp%3E%3C%2Fbody%3E%3C%2Fhtml%3E",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	}
+
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><p>Este texto es maravilloso</p></body></html>\"}}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getHTML",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/createPad"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getHTML",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/setText"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getHTML",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"Initial text\"}}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getHTML",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/setHTML"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getHTML",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><p>Este texto es maravilloso</p></body></html>\"}}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><p>Este texto es maravilloso</p></body></html>\"}}"
+	}
+
+ for request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getHTML",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><p>Este texto es maravilloso</p></body></html>\"}}"
+	}
+
+[INFO] resetting all expectations and request logs
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getHTML",
+	  "queryStringParameters" : {
+	    "rev" : [ "2" ],
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	}
+
+ for request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getHTML",
+	  "queryStringParameters" : {
+	    "rev" : [ "2" ],
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	}
+
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"\"}}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getText",
+	  "queryStringParameters" : {
+	    "rev" : [ "2" ],
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getText",
+	  "queryStringParameters" : {
+	    "rev" : [ "2" ],
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"\"}}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"\"}}"
+	}
+
+ for request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getText",
+	  "queryStringParameters" : {
+	    "rev" : [ "2" ],
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"\"}}"
+	}
+
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionsCount",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"revisions\": 3}}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionsCount",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionsCount",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"\"}}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionsCount",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionsCount",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"revisions\": 3}}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"revisions\": 3}}"
+	}
+
+ for request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionsCount",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"revisions\": 3}}"
+	}
+
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionChangeset",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": \"Este texto es maravilloso\"}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionChangeset",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionChangeset",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"\"}}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionChangeset",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionsCount",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"revisions\": 3}}"
+	  }
+	}
+
+ because:
+
+	method matched,
+	path didn't match,
+	query matched,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionChangeset",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionChangeset",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": \"Este texto es maravilloso\"}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": \"Este texto es maravilloso\"}"
+	}
+
+ for request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/api/1.2.13/getRevisionChangeset",
+	  "queryStringParameters" : {
+	    "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	    "padID" : [ "integration-test-pad" ]
+	  },
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "content-length" : [ "0" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": \"Este texto es maravilloso\"}"
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/sendClientsMessage",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "115" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "msg=test+message&apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/sendClientsMessage",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "115" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "msg=test+message&apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"\"}}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/sendClientsMessage",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "115" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "msg=test+message&apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionsCount",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"revisions\": 3}}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/sendClientsMessage",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "115" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "msg=test+message&apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionChangeset",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": \"Este texto es maravilloso\"}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] no expectation for:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/sendClientsMessage",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "115" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "msg=test+message&apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ returning response:
+
+	{
+	  "statusCode" : 404,
+	  "reasonPhrase" : "Not Found"
+	}
+
+[INFO] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/deletePad"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/deletePad",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "98" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getHTML",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"html\": \"<!DOCTYPE HTML><html><body><br></body></html>\",\"text\":\"Initial text\"}}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/deletePad",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "98" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getText",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ],
+	      "rev" : [ "2" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"text\": \"\"}}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/deletePad",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "98" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionsCount",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": {\"revisions\": 3}}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/deletePad",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "98" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ didn't match expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "GET",
+	    "path" : "/api/1.2.13/getRevisionChangeset",
+	    "queryStringParameters" : {
+	      "apikey" : [ "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58" ],
+	      "padID" : [ "integration-test-pad" ]
+	    }
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": \"Este texto es maravilloso\"}"
+	  }
+	}
+
+ because:
+
+	method didn't match,
+	path didn't match,
+	query didn't match,
+	body matched,
+	headers matched,
+	cookies matched,
+	keep-alive matched,
+	ssl matched
+
+[INFO] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/deletePad",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "98" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ matched expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/api/1.2.13/deletePad"
+	  },
+	  "times" : {
+	    "unlimited" : true
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 200,
+	    "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	  }
+	}
+
+[INFO] returning response:
+
+	{
+	  "statusCode" : 200,
+	  "headers" : {
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/api/1.2.13/deletePad",
+	  "headers" : {
+	    "User-Agent" : [ "Java/1.8.0_92" ],
+	    "Host" : [ "localhost:9001" ],
+	    "Accept" : [ "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2" ],
+	    "Connection" : [ "keep-alive" ],
+	    "Content-type" : [ "application/x-www-form-urlencoded" ],
+	    "Content-Length" : [ "98" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false,
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "apikey=a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58&padID=integration-test-pad",
+	    "contentType" : "text/plain; charset=utf-8"
+	  }
+	}
+
+ for action:
+
+	{
+	  "statusCode" : 200,
+	  "body" : "{\"code\":0,\"message\":\"ok\",\"data\": null}"
+	}
+
+[ERROR] Failed to send stop request to MockServer Unable to connect to socket /127.0.0.1:9001
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.753 sec <<< FAILURE! - in net.gjerull.etherpad.client.EPLiteClientIntegrationTest
+create_pad_set_and_get_content(net.gjerull.etherpad.client.EPLiteClientIntegrationTest)  Time elapsed: 6.751 sec  <<< ERROR!
+net.gjerull.etherpad.client.EPLiteException: Unable to connect to Etherpad Lite instance (class java.io.FileNotFoundException): http://localhost:9001/api/1.2.13/sendClientsMessage
+	at net.gjerull.etherpad.client.EPLiteConnection.call(EPLiteConnection.java:276)
+	at net.gjerull.etherpad.client.EPLiteConnection.postObject(EPLiteConnection.java:149)
+	at net.gjerull.etherpad.client.EPLiteConnection.post(EPLiteConnection.java:160)
+	at net.gjerull.etherpad.client.EPLiteClient.sendClientsMessage(EPLiteClient.java:895)
+	at net.gjerull.etherpad.client.EPLiteClientIntegrationTest.create_pad_set_and_get_content(EPLiteClientIntegrationTest.java:555)
+
+Running net.gjerull.etherpad.client.EPLiteConnectionTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.gjerull.etherpad.client.EPLiteConnectionTest
+[INFO] Cobertura: Loaded information on 8 classes.
+[INFO] Cobertura: Saved information on 8 classes.
+
+Results :
+
+Tests in error: 
+  EPLiteClientIntegrationTest.create_pad_set_and_get_content:555 » EPLite Unable...
+
+Tests run: 14, Failures: 0, Errors: 1, Skipped: 0
+
+[ERROR] There are test failures.
+
+Please refer to /home/pablo/Documentos/Coruña4/VVS/P3/workspace/etherpad_lite_client/target/surefire-reports for the individual test results.
+[INFO] 
+[INFO] <<< cobertura-maven-plugin:2.7:cobertura (default-cli) < [cobertura]test @ etherpad_lite_client <<<
+[INFO] 
+[INFO] 
+[INFO] --- cobertura-maven-plugin:2.7:cobertura (default-cli) @ etherpad_lite_client ---
+[INFO] Cobertura 2.1.1 - GNU GPL License (NO WARRANTY) - See COPYRIGHT file
+[INFO] Cobertura: Loaded information on 8 classes.
+Report time: 209ms
+
+[INFO] Cobertura Report generation was successful.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 13.728 s
+[INFO] Finished at: 2018-11-18T22:52:41+01:00
+[INFO] Final Memory: 31M/592M
+[INFO] ------------------------------------------------------------------------
