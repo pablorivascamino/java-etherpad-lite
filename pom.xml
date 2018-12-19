@@ -64,6 +64,14 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- JETM -->
+		<dependency>
+      		<groupId>com.google.code.jetm</groupId>
+      		<artifactId>jetm-maven-plugin</artifactId>
+      		<version>1.0.2</version>
+    	</dependency>
+		
 	</dependencies>
 
 
@@ -148,7 +156,36 @@
 					<aggregate>true</aggregate>
 				</configuration>
 			</plugin>
-
+			
+			<!-- Spotbugs -->
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>3.1.8</version>
+				<dependencies>
+					<!-- overwrite dependency on spotbugs if you want to specify the version 
+						of spotbugs -->
+					<dependency>
+						<groupId>com.github.spotbugs</groupId>
+						<artifactId>spotbugs</artifactId>
+						<version>3.1.9</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			
+			<!-- Checkstyle -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+			
+			<!-- PIT -->
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.4.3</version>
+			</plugin>
 		</plugins>
 	</build>
 

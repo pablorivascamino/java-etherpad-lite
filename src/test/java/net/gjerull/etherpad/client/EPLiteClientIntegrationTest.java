@@ -15,6 +15,11 @@ import org.mockserver.model.Parameter;
 import org.mockserver.model.Parameters;
 import org.mockserver.model.StringBody;
 
+import etm.core.configuration.BasicEtmConfigurator;
+import etm.core.configuration.EtmManager;
+import etm.core.monitor.EtmMonitor;
+import etm.core.renderer.SimpleTextRenderer;
+
 import static org.mockserver.model.Header.header;
 
 import static org.mockserver.integration.ClientAndServer.startClientAndServer;
@@ -30,7 +35,8 @@ public class EPLiteClientIntegrationTest {
     private EPLiteClient client;
 
     private ClientAndServer mockServer;
-    
+    private EtmMonitor monitor;
+
     /**
      * Useless testing as it depends on a specific API key
      *
@@ -43,12 +49,17 @@ public class EPLiteClientIntegrationTest {
                 "a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58"
         );
         mockServer = startClientAndServer(9001);
-        
+        BasicEtmConfigurator.configure();
+		monitor = EtmManager.getEtmMonitor();
+		monitor.start();
     }
     
     @After
     public void tearDown() {
-        mockServer.stop();
+    	mockServer.reset();
+    	monitor.render(new SimpleTextRenderer());
+        monitor.stop();
+    	mockServer.stop();
     }
     
     private void setPostResponse (String path,String response) {

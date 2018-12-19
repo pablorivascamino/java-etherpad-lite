@@ -59,3 +59,13 @@ Integration testing requires a copy of EtherpadLite running at http://localhost:
 of a04f17343b51afaa036a7428171dd873469cd85911ab43be0503d29d2acbbd58
 
 Integration tests are not run using `maven test`.
+
+### COMANDOS UTILIZADOS ###
+
+mvn checkstyle:checkstyle -> encuentra fallos de código (437 errores encontrados)
+mvn spotbugs:check -> encuentra bugs con la herramienta spotbugs (encontrados 3 bugs)
+mvn spotbugs:gui -> visualiza los bugs detectados por spotbugs
+mvn org.pitest:pitest-maven:mutationCoverage -> ejecua los test de mutación con pitest
+
+mvn install con:
+JITM paratests de rendimiento
