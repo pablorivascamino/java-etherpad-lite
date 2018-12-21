@@ -872,17 +872,29 @@ public class EPLiteClientIntegrationTest {
         		 "{\"code\":0,\"message\":\"ok\",\"data\": null}");
         setPostResponse("deletePad", 
         		 "{\"code\":0,\"message\":\"ok\",\"data\": null}");
+        
+        setGetResponse("listPadsOfAuthor", "{\"code\":0,\"message\":\"ok\",\"data\":{\"padIDs\": [\"integration-test-pad-1\",\"integration-test-pad-2\"]}}",
+        		params);
              
         client.createPad(pad1);
         client.createPad(pad2);
         Thread.sleep(100);
         List padIDs = (List) client.listAllPads().get("padIDs");
+        
+        Map pads = this.client.listPadsOfAuthor(authorId_param.key());
+		List padIDs2 = (List) pads.get("padIDs");
+        
+        assertTrue(!client.isSecure());
+		
         client.deletePad(pad1);
         client.deletePad(pad2);
 
         assertTrue(String.format("Size was %d", padIDs.size()),padIDs.size() >= 2);
+		assertEquals(2, padIDs2.size());
         assertTrue(padIDs.contains(pad1));
         assertTrue(padIDs.contains(pad2));
+        assertTrue(padIDs2.contains(pad1));
+        assertTrue(padIDs2.contains(pad2));
     }
 
     @Test
